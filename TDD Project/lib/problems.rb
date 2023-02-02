@@ -37,3 +37,33 @@ class Array
     end
 
 end
+
+def my_transpose(array)
+    final = []
+
+    
+    array.each_with_index do |subary, i|
+        transepose = []
+        array.each do |sub|
+            
+            transepose << sub[i]
+        end
+        final << transepose
+    end
+
+    return final
+end
+
+def stock_picker(array)
+
+    if !array.all? {|ele| ele.is_a?(Integer)}
+        raise "It can only contain numbers"
+    end
+
+    minum = array.index(array.min) + 1
+    max = array.index(array.max) + 1
+
+    return "buy on day #{minum} and sell on day #{max}"
+
+
+end

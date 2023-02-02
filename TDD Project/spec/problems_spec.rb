@@ -49,3 +49,62 @@ describe "Array#two_sum" do
     end
 
 end
+
+describe "my_transpose" do
+
+    it "should return transposed array" do
+
+        rows = [
+            [0, 1, 2],
+            [3, 4, 5],
+            [6, 7, 8]
+        ] 
+
+        expect(my_transpose(rows)).to eq(
+            [
+                [0, 3, 6],
+                [1, 4, 7],
+                [2, 5, 8]
+            ]
+        )
+
+    end
+
+    it "should not modify original array" do
+
+        rows = [
+            [0, 1, 2],
+            [3, 4, 5],
+            [6, 7, 8]
+        ] 
+
+        my_transpose(rows)
+
+        expect(rows).to be(rows)
+
+    end
+
+end
+
+
+describe "stock_picker" do 
+
+    it "should return the best days to buy and sell stock" do
+
+        expect(stock_picker([5, 10, 2, 4, 15, 7])).to eq("buy on day 3 and sell on day 5")
+        expect(stock_picker([1, -100, 23, 50])).to eq("buy on day 3 and sell on day 5")
+
+    end
+    
+
+
+    it 'input should only contain numbers' do
+
+        expect{ stock_picker(['a', 5, 'hello', 3, -5, 2]) }.to raise_error("It can only contain numbers")
+
+    end
+
+
+
+
+end
